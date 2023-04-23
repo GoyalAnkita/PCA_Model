@@ -20,5 +20,6 @@ To use the code, follow these steps:
     Download or clone the repository
     Ensure that the required libraries are installed
     Run the PCA_Model.py script in your preferred Python environment
-    The script will load the winequality-white.csv dataset and perform PCA analysis
+    The script will load the winequality-white.csv,iris and housing dataset and perform PCA analysis
     The create_visualization class can be used to create 2D and 3D scatterplots to visualize the results of the PCA analysis
+    We have used these 3 datasets for testing purposes and also because these datasets did not consist of categorical columns
