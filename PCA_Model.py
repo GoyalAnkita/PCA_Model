@@ -78,6 +78,11 @@ class create_visualization(PCA):
     self.isClassification=isClassification
 
   def plot_2D(self,X,y=None):
+     """
+    Generates a 2D scatterplot of the first two principal components of the input data X.
+    - X: numpy array or pandas DataFrame the input data for which the scatterplot needs to be generated.
+    - y: numpy array or pandas Series, set to None by default. If isClassification is True, then y contains the class labels for each data point.
+    """
 
     PCA_fitted=PCA.fit(self,X)
     W=self.eigen_vec_sorted[:2,:]
@@ -102,6 +107,11 @@ class create_visualization(PCA):
 
 
   def plot_3D(self,X,y=None):
+    """
+    Generates a 3D scatterplot of the first two principal components of the input data X.
+    - X: numpy array or pandas DataFrame the input data for which the scatterplot needs to be generated.
+    - y: numpy array or pandas Series, set to None by default. If isClassification is True, then y contains the class labels for each data point.
+    """
 
     PCA_fitted=PCA.fit(self,X)
     W=self.eigen_vec_sorted[:3,:]
@@ -124,6 +134,11 @@ class create_visualization(PCA):
     plt.show()
 
   def create_scatterplots(self,X,y=None):
+    """
+    Creates a scatterplot of the input data, using 2D or 3D as required, based on the number of components.
+    - X: numpy array or pandas DataFrame, the input data for which the scatterplot needs to be generated.
+    - y: numpy array or pandas Series, set to None by default. If isClassification is True, then y contains the class labels for each data point.
+    """
     if self.n_components>3:
       print("For more than 3 dimensions, plot can not be generated, however out of {} n_components , the 3D plot for first 3 components is as follows:\n".format(self.n_components))
       self.plot_3D(X,y)
@@ -133,6 +148,10 @@ class create_visualization(PCA):
       self.plot_3D(X,y)
 
   def create_cummulativeplot(self,X):
+         """
+    Generates a cummulative plot  of the first two principal components of the input data X.
+    X: array-like, shape (n_samples, n_features) The input data for which the scatterplot needs to be generated.
+    """
     PCA_fitted=PCA.fit(self,X)
     #plt.figure(figsize=(20,8))
     #print(X.shape[1])
