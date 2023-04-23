@@ -21,6 +21,14 @@ class PCA:
         self.eigen_vec_sorted=[]
       
     def fit(self, X):
+        """
+        Fit the PCA model to the input data X
+        X: numpy array or pandas DataFrame
+        (Input data for which the PCA model needs to be fitted)
+
+        Returns:
+        self: object (Fitted PCA object).
+        """
         X=X.to_numpy()
         # Standardize data 
         X = X.copy()
@@ -52,6 +60,11 @@ class PCA:
         return self
 
     def transform(self, X):
+        """
+        Project input data X onto the principal components.
+        X: numpy array or pandas DataFrame (Input data to be transformed)
+        X_proj: numpy array (Projected data onto the principal components)
+        """
         X = X.copy()
         X_std = (X - self.mean) / self.scale
         X_proj = X_std.dot(self.components.T)
@@ -59,6 +72,12 @@ class PCA:
         return X_proj
     
     def find_components(self,explainability):
+        """
+        Find the number of principal components required to retain a certain amount of variance.
+        explainability: float
+
+        Returns: None.
+        """
       #print('Cummulative explained variance: ',self.cum_explained_variance)
       explained_variance=0
       for index,val in enumerate(np.round(self.cum_explained_variance,2)):
