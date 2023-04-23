@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
-from Implementation import PCA
-from Implementation import create_visualization
+from PCA_Model import PCA
+from PCA_Model import create_visualization
 
 
 df=pd.read_table('Iris.xls',sep=',')
