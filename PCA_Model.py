@@ -17,6 +17,10 @@ import matplotlib.pyplot as plt
 class PCA:
     
     def __init__(self, n_components):
+        """
+        n_components: int
+        (Number of principal components to keep)
+        """
         self.n_components = n_components   
         self.eigen_vec_sorted=[]
       
@@ -93,6 +97,13 @@ class PCA:
 class create_visualization(PCA):
 
   def __init__(self,isClassification=False,**kwargs):
+    
+     """
+    Initializes the class with the following parameters:
+    - isClassification: boolean, set to False by default. If set to True, the scatterplot will be colored by class label.
+    - **kwargs: any additional arguments to be passed to the parent class (PCA).
+    """
+    
     super().__init__(**kwargs)
     self.isClassification=isClassification
 
@@ -182,14 +193,14 @@ class create_visualization(PCA):
     plt.xlabel('Number of Components')
     plt.ylabel('Cummulative Explained Variance')
     return plt.show()
-     
+'''     
 def plt_():
     xpoints = np.array([1, 8])
     ypoints = np.array([3, 10])
 
     plt.plot(xpoints, ypoints)
     plt.show()
-
+'''
 
 
 
